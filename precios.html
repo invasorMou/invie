@@ -5,16 +5,17 @@
     <title>Precios de tus mejores guitarras!!</title>
     <link rel="stylesheet" href="css/invie.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Allerta" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   </head>
-  <body>
+  <body class="precios">
 
     <header id="header" class="header background" > <!--header-->
         <div class=" contenedor">
           <figure class="logotipo"> <!--logotipo-->
             <img src="imagenes/invie.png" alt="Invie logotipo" width="186" height="60">
           </figure>
-
-      <nav class="menu"> <!-- menu -->
+      <span class="icon-menu burger-button" id="burger-button"></span>
+      <nav class="menu" id="menu"> <!-- menu -->
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#guitarras">Guitarras</a></li>
@@ -32,10 +33,16 @@
               <th>Modelo</th>
               <th>Precio</th>
               <th>Descripción</th>
+              <th>Modelo</th>
+              <th>Precio</th>
+              <th>Descripción</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td>Invie Classic</td>
+              <td>$100.000</td>
+              <td>Una guitarra muy pro</td>
               <td>Invie Classic</td>
               <td>$100.000</td>
               <td>Una guitarra muy pro</td>
@@ -44,8 +51,14 @@
               <td>Invie Acústica</td>
               <td>$100.000</td>
               <td>Una guitarra muy pro</td>
+              <td>Invie Acústica</td>
+              <td>$100.000</td>
+              <td>Una guitarra muy pro</td>
             </tr>
             <tr>
+              <td>Invie Classic</td>
+              <td>$100.000</td>
+              <td>Una guitarra muy pro</td>
               <td>Invie Classic</td>
               <td>$100.000</td>
               <td>Una guitarra muy pro</td>
@@ -101,5 +114,39 @@
         </form>
       </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
+
+    <script>
+      var consulta = window.matchMedia('(max-width:500px)');
+
+      consulta.addListener(mediaQuery);
+
+      var $burgerButton = document.getElementById('burger-button');
+      var $menu = document.getElementById('menu');
+
+      /*$burgerButton.addEventListener('touchstart', toogleMenu );*/
+  
+      function toogleMenu(){  
+      $menu.classList.toggle('active');
+      $burgerButton.classList.toggle('icon-cancel-circle'); 
+    }
+
+      function mediaQuery() {
+        if (consulta.matches) {
+            console.log('se cumplio true');
+            $burgerButton.addEventListener('touchstart', toogleMenu );
+        } else {
+            $burgerButton.removeEventListener('touchstart', toogleMenu );
+            console.log('nope');
+          }
+        }
+
+        mediaQuery();
+
+       var bLazy = new Blazy({ 
+         selector: 'img'        
+        });
+     
+    </script>
   </body>
   </html>
